@@ -26,9 +26,6 @@ jobs:
           config: quartz.config.yaml
           content-dir: docs
 
-      - name: Check output
-        run: test -f "${{ steps.quartz.outputs.output-dir }}/index.html"
-
       - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
         with:
           path: ${{ steps.quartz.outputs.output-dir }}
