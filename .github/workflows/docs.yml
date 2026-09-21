@@ -24,7 +24,7 @@ jobs:
         with:
           quartz-version: v5.0.0
           config: quartz.config.yaml
-          content-dir: docs/content
+          content-dir: docs
 
       - name: Check output
         run: test -f "${{ steps.quartz.outputs.output-dir }}/index.html"
