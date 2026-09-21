@@ -1,0 +1,9 @@
+views:
+  - type: table
+    name: Table
+    filters:
+      and:
+        - category == "project"
+    order:
+      - file.name
+      - opensource

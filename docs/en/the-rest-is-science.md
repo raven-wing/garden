@@ -1,6 +1,7 @@
-# the rest is science curious apps
+you know what The Rest Is Science. right? if not... don't bother... you're not worthy to read this.
+# online curiosity
 
-Links of curiosities that you could check yourself
+Links of curious thing that Hannah and Michael were talking about and you can check online yourself
 
 | curiosities                                                                   | episode                                                                          | timestamp                                    |
 | ----------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------- |
