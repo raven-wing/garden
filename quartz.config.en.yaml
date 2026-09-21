@@ -8,7 +8,8 @@ configuration:
     provider: null
   locale: en-GB
   # GitHub Pages project site: user/org domain plus the repository name.
-  baseUrl: raven-wing.github.io/quartz-action
+  # English is served at the root, Polish under /pl (quartz.config.pl.yaml).
+  baseUrl: raven-wing.github.io/garden
   ignorePatterns:
     - private
     - templates
@@ -197,6 +198,7 @@ plugins:
       links:
         quartz-action: https://github.com/raven-wing/quartz-action
         Quartz: https://github.com/jackyzha0/quartz
+        Polski: https://raven-wing.github.io/garden/pl/
   - source: github:quartz-community/recent-notes
     enabled: false
   - source: github:quartz-community/spacer

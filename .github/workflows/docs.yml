@@ -19,16 +19,33 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - id: quartz
+      # quartz-action always builds into the same directory, so each build is moved out
+      # before the next one overwrites it.
+      - id: quartz-en
         uses: raven-wing/quartz-action@main
         with:
           quartz-version: v5.0.0
-          config: quartz.config.yaml
-          content-dir: docs
+          config: quartz.config.en.yaml
+          content-dir: docs/en
+      - name: Place English site at the root
+        env:
+          OUTPUT_DIR: ${{ steps.quartz-en.outputs.output-dir }}
+        run: mv "$OUTPUT_DIR" "$RUNNER_TEMP/site"
+
+      - id: quartz-pl
+        uses: raven-wing/quartz-action@main
+        with:
+          quartz-version: v5.0.0
+          config: quartz.config.pl.yaml
+          content-dir: docs/pl
+      - name: Place Polish site under /pl
+        env:
+          OUTPUT_DIR: ${{ steps.quartz-pl.outputs.output-dir }}
+        run: mv "$OUTPUT_DIR" "$RUNNER_TEMP/site/pl"
 
       - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
         with:
-          path: ${{ steps.quartz.outputs.output-dir }}
+          path: ${{ runner.temp }}/site
 
   deploy:
     needs: build
