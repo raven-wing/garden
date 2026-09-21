@@ -34,7 +34,7 @@ jobs:
           path: ${{ steps.quartz.outputs.output-dir }}
 
   deploy:
-    needs: [build, build-without-config]
+    needs: build
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     permissions:
