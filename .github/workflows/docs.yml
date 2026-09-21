@@ -20,7 +20,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - id: quartz
-        uses: ./
+        uses: raven-wing/quartz-action@main
         with:
           quartz-version: v5.0.0
           config: quartz.config.yaml
