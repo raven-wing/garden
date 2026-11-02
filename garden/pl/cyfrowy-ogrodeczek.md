@@ -2,6 +2,7 @@
 tags:
   - Zettelkasten
   - digital-garden
+  - notatki
 ---
 # Czym jest cyfrowy ogródek (digital garden)?
 
