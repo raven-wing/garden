@@ -1,12 +1,18 @@
-# co to jest ten cyfrowy ogródek (digital garden)?
+---
+tags:
+  - Zettelkasten
+  - digital-garden
+---
+# Czym jest cyfrowy ogródek (digital garden)?
 
-To taka prywatna wikipedia, z tym, że nie musisz się znać na temacie, żeby to opublikować.
+To taka prywatna wikipedia, z tym, że nie musisz się znać na temacie, żeby to opublikować. 
 
 Taki format ma kilka szalenie istotnych zalet:
 - linkowanie jest super proste i szybkie. Jeśli korzystasz z Obsidiana wystarczy `[[temat]]` i masz gotowy link do notatki o nazwie "temat"
 - nie konsumuje się tego w sposób _strumieniowy_ (co przyjdzie, to czytam), a raczej tematyczny, wpadając w pętle linków
-- edytujesz to jak chcesz i kiedy chcesz
+- edytujesz to jak chcesz (swoimi słowami) i kiedy chcesz
 
+Metoda takich notatek jest znana pod nazwą [Zettelkasten](https://adrianodwald.substack.com/p/protoko-metody-zettelkasten)
 ## a po co mi to?
 
 1. żeby móc zrobić notatki, z których ktoś inny może skorzystać
