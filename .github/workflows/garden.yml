@@ -8,48 +8,83 @@ permissions:
   contents: read
 
 concurrency:
-  group: docs-site-${{ github.ref }}
-  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+  group: garden-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   build:
+    name: build (${{ matrix.lang }})
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # Per-language overrides on top of the shared quartz.config.yaml.
+        # base-url must match where `assemble` puts the site.
+        include:
+          - lang: en
+            title: Kapek's Garden
+            locale: en-GB
+            base-url: garden.kapek.co
+            switch-label: Polski
+            switch-url: https://garden.kapek.co/pl/
+          - lang: pl
+            title: Ogródek Kapeka
+            locale: pl-PL
+            base-url: garden.kapek.co/pl
+            switch-label: English
+            switch-url: https://garden.kapek.co/
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
         with:
           fetch-depth: 0
           persist-credentials: false
-      # quartz-action always builds into the same directory, so each build is moved out
-      # before the next one overwrites it.
-      - id: quartz-en
+      - name: Generate ${{ matrix.lang }} config
+        env:
+          TITLE: ${{ matrix.title }}
+          LOCALE: ${{ matrix.locale }}
+          BASE_URL: ${{ matrix.base-url }}
+          SWITCH_LABEL: ${{ matrix.switch-label }}
+          SWITCH_URL: ${{ matrix.switch-url }}
+        run: |
+          yq '
+            .configuration.pageTitle = strenv(TITLE) |
+            .configuration.locale = strenv(LOCALE) |
+            .configuration.baseUrl = strenv(BASE_URL) |
+            (.plugins[] | select(.source == "@quartz-community/footer") | .options.links[strenv(SWITCH_LABEL)]) = strenv(SWITCH_URL)
+          ' quartz.config.yaml > quartz.config.generated.yaml
+          diff quartz.config.yaml quartz.config.generated.yaml || true
+      - id: quartz
         uses: raven-wing/quartz-action@3afdbd019f6d49b0ce60a490004fa5b439525e45 # v0.1.0
         with:
           quartz-version: 97a2d05f80c4c50534959b1d0d41cc4b3895625e # v5 branch, 2026-09-20
-          config: quartz.config.en.yaml
-          content-dir: docs/en
-      - name: Place English site at the root
-        env:
-          OUTPUT_DIR: ${{ steps.quartz-en.outputs.output-dir }}
-        run: mv "$OUTPUT_DIR" "$RUNNER_TEMP/site"
-
-      - id: quartz-pl
-        uses: raven-wing/quartz-action@3afdbd019f6d49b0ce60a490004fa5b439525e45 # v0.1.0
+          config: quartz.config.generated.yaml
+          content-dir: garden/${{ matrix.lang }}
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
-          quartz-version: 97a2d05f80c4c50534959b1d0d41cc4b3895625e # v5 branch, 2026-09-20
-          config: quartz.config.pl.yaml
-          content-dir: docs/pl
-      - name: Place Polish site under /pl
-        env:
-          OUTPUT_DIR: ${{ steps.quartz-pl.outputs.output-dir }}
-        run: mv "$OUTPUT_DIR" "$RUNNER_TEMP/site/pl"
+          name: site-${{ matrix.lang }}
+          path: ${{ steps.quartz.outputs.output-dir }}
+          if-no-files-found: error
+          retention-days: 1
 
+  # English is served at the root, Polish under /pl (matches baseUrl in the configs).
+  assemble:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: site-en
+          path: site
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: site-pl
+          path: site/pl
       - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
         with:
-          path: ${{ runner.temp }}/site
+          path: site
 
   deploy:
-    needs: build
-    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: assemble
     runs-on: ubuntu-latest
     permissions:
       pages: write
