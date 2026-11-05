@@ -1,5 +1,9 @@
 ---
 category: pomysły
+tags:
+  - kamper
+  - biznes
+  - turystyka
 ---
 Całkowicie automatyczne pole kamperowe:
 - pralnia automatyczna
@@ -12,11 +16,9 @@ Całkowicie automatyczne pole kamperowe:
 Na Podlasiu i Mazurach trudno znaleźć miejsce do zrzutu nieczystości. Automat który można podłączyć w PL do sieci kanalizacyjnej kosztuje około 30k.
 Cena serwisu (opróżnienie szarej i czarnej wody, napełnienie wody) to około 20 zł. Koszt to jakieś 3 zł. ==dodać konkretne wyliczenia==. W weekend w Augustowie siedzieliśmy obok jednego miejsca w w ciągu 4 godzin było jakieś 8 serwisów.
 
-
-
 Co jakiś czas należałoby taki system sprawdzać czy wszystko ok, ale po 375 dniach przy 4 krotnym dziennym użyciu sprzęt się zwraca. Oczywiście wszystko zależy od popularności miejsca i sezonu. Trzeba sprawdzić jak często system byłby wykorzystywany zimą.
 
-==sprawdzić i dodać konkretne koszty==
+==sprawdzić i dodać konkretne koszty pralni==
 ###  pole kamperowe
 
 Poprzednie nie wymagały dużej działki. Ten wymaga, ale może być fajnym uzupełnieniem (albo poprzednie mogą być fajnym uzupełnieniem tego).

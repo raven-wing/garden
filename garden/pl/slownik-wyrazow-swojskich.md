@@ -1,6 +1,7 @@
 ---
 tags:
   - facepalm
+  - random
 ---
 # Słownik Wyrazów Swojskich (SWS)
 # D

@@ -7,9 +7,11 @@ configuration:
   analytics:
     provider: null
   locale: en-GB
-  # GitHub Pages project site: user/org domain plus the repository name.
-  # English is served at the root, Polish under /pl (quartz.config.pl.yaml).
-  baseUrl: raven-wing.github.io/garden
+  # Shared by every language. pageTitle, locale, baseUrl and the footer's
+  # language-switch link are overridden per language by the build matrix in
+  # .github/workflows/garden.yml; the values here are the English defaults.
+  # Custom domain, set in the repo's GitHub Pages settings.
+  baseUrl: garden.kapek.co
   ignorePatterns:
     - private
     - templates
@@ -112,7 +114,8 @@ plugins:
     enabled: true
   - source: "@quartz-community/og-image"
     enabled: true
-  # A CNAME file is only for a custom domain; on a github.io project site it has no use.
+  # Not needed: with Actions-based Pages deploys the custom domain comes from the
+  # repo's Pages settings, and a CNAME file in the artifact is ignored.
   - source: "@quartz-community/cname"
     enabled: false
   - source: "@quartz-community/canvas-page"
@@ -198,7 +201,7 @@ plugins:
       links:
         quartz-action: https://github.com/raven-wing/quartz-action
         Quartz: https://github.com/jackyzha0/quartz
-        Polski: https://raven-wing.github.io/garden/pl/
+        # The link to the other language is added by the build matrix.
   - source: "@quartz-community/recent-notes"
     enabled: false
   - source: "@quartz-community/spacer"
