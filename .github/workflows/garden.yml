@@ -33,7 +33,7 @@ jobs:
         run: mv "$OUTPUT_DIR" "$RUNNER_TEMP/site"
 
       - id: quartz-pl
-        uses: raven-wing/quartz-action@npm-plugins
+        uses: raven-wing/quartz-action@3afdbd019f6d49b0ce60a490004fa5b439525e45 # v0.1.0
         with:
           quartz-version: 97a2d05f80c4c50534959b1d0d41cc4b3895625e # v5 branch, 2026-09-20
           config: quartz.config.pl.yaml
