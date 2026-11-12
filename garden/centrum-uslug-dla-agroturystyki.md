@@ -1,5 +1,5 @@
 ---
-kategoria: pomysly
+kategoria: biznesy
 tags:
   - biznes
   - turystyka

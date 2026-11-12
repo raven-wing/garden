@@ -1,12 +1,12 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: Kapek's Garden
+  pageTitle: "Koło mego ogródecka"
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true
   analytics:
     provider: null
-  locale: en-GB
+  locale: pl
   # Shared by every language. pageTitle, locale, baseUrl and the footer's
   # language-switch link are overridden per language by the build matrix in
   # .github/workflows/garden.yml; the values here are the English defaults.
