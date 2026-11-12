@@ -6,7 +6,7 @@ configuration:
   enablePopovers: true
   analytics:
     provider: null
-  locale: pl
+  locale: pl-PL
   # Shared by every language. pageTitle, locale, baseUrl and the footer's
   # language-switch link are overridden per language by the build matrix in
   # .github/workflows/garden.yml; the values here are the English defaults.
