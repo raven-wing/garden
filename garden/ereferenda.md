@@ -1,9 +1,10 @@
 ---
-kategoria: pomysły
 tags:
   - polityka
   - demokracja
   - tech
+  - pomysł
+  - biznes
 ---
 A gdyby tak o sobie decydowali ludzie, nie politycy?
 

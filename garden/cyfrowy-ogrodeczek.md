@@ -19,4 +19,4 @@ Metoda takich notatek jest znana pod nazwą [Zettelkasten](https://adrianodwald.
 1. żeby móc zrobić notatki, z których ktoś inny może skorzystać
 2. żeby się nie spinać zbytnio nad formą
 3. żeby się z ludźmi podzielić pomysłami, na których czasu może mi po prostu nie wystarczyć
-4. żeby jak potrzebuję AI'a to mu dać dostęp do katalogu i on już wszystko wie, bo język markdownów (.md) jest dla niego super naturalny
+4. żeby jak potrzebuję AI'a to mu dać dostęp do katalogu i on już wszystko wie, bo język markdownów (.md) jest dla niego bardzo przyswajalny

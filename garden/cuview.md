@@ -1,10 +1,9 @@
 ---
 tags:
-  - pomysł
   - apka
   - android
   - tech
-kategoria: biznesy
+  - zadania
 ---
 ClickUp jest super apką, ale ssie jeśli chodzi o widget na telefon. Dlatego też zrobiłem swój. Można obczaić za darmo (póki co). Trzeba dołączyć do grupy [TUTAJ](https://groups.google.com/g/cuviewreview)
 

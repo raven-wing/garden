@@ -1,8 +1,8 @@
 ---
-kategoria: biznesy
 tags:
   - biznes
   - turystyka
+  - pomysł
 ---
 W czasach gorączki złota najwięcej zarabiali nie ci, którzy szukali tego złota, ale ci którzy obsługiwali tych poszukiwaczy. Dlatego pomysł tu jest prosty - nieść pomoc agroturystykom w miejscowościach turystycznych:
 
